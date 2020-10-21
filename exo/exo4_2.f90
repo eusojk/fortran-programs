@@ -1,4 +1,5 @@
 program exo4_2
+    
     ! Calculate and print a defined number of the Fibonacci sequence
     implicit none
     integer :: limit, index
