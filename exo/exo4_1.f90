@@ -1,4 +1,4 @@
-program exo3_1
+program exo4_1
     implicit none
 
     ! a) defines an array to have 100 elements
@@ -27,4 +27,4 @@ program exo3_1
         print *, temp_array(index), array(index)
     end do
     
-end program exo3_1
+end program exo4_1
