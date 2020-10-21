@@ -16,7 +16,7 @@ program exo3_1
     write(6, '(a)', advance='no') "Enter second integer value (1-100): "
     read(5, '(i3)') end
 
-    ! - reverses the order of the elements of the array in the range specified by the two values
+    ! d) reverses the order of the elements of the array in the range specified by the two values
     temp_array = array
     do index = start, end 
         array(index) = temp_array(end - index + start)
