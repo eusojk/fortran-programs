@@ -1,11 +1,11 @@
 program exo4_5
-
     !  A program which reads an integer value limit and print the first limit prime numbers, by any method.
     implicit none
     integer :: limit, limit_counter = 0, number = 2
 
     write(6, '(a)', advance='no') "Number of primes: "
     read(5, '(i3)') limit
+    if ( limit .eq. 0 ) stop '`limit` must be at least 1'
     write(6, '(a, i3, a)') 'The first ', limit, ' prime number(s) are: '
 
     do 
