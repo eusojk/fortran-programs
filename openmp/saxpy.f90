@@ -1,4 +1,5 @@
 ! A multiply-add: single-precision a*x + y aka saxpy
+! using a parallel do construct
 program main
     implicit none
     
