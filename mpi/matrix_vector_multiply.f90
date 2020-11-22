@@ -4,13 +4,14 @@ program main
 
     integer, parameter :: manager = 0, MAX_ROWS = 1000, MAX_COLS = 1000
     integer :: rank, numprocs, ierr, status(MPI_STATUS_SIZE)
-    integer :: i, j, row, rows, cols, numsent, sender, row_tag
+    integer :: i, j, row, rows, cols, numsent, sender, row_tag, end_signal_tag
     double precision :: A(MAX_ROWS, MAX_COLS), B(MAX_COLS), C(MAX_ROWS), buffer(MAX_COLS)
     double precision :: dot_product
 
     rows = 100
     cols = 100
     dot_product = 0.0d0
+    end_signal_tag = 0
 
     call MPI_INIT(ierr)
     call MPI_COMM_RANK(MPI_COMM_WORLD, rank, ierr)
@@ -60,7 +61,7 @@ program main
             
             ! Or send the end signal when no more work to do
             else
-                call MPI_SEND(MPI_BOTTOM, 0, MPI_DOUBLE_PRECISION, sender, 0, MPI_COMM_WORLD, ierr)
+                call MPI_SEND(MPI_BOTTOM, 0, MPI_DOUBLE_PRECISION, sender, end_signal_tag, MPI_COMM_WORLD, ierr)
             end if
         
         end do
